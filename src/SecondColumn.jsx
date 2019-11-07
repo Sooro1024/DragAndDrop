@@ -1,17 +1,25 @@
 import React from "react";
 import SecondColumnShorctCut from "./SecondColumnShortcut";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 const SecondColumn = ({ secondColumn, memoFunc, closure }) => {
   return (
     <div>
-      {secondColumn.map(el => (
-        <SecondColumnShorctCut
-          item={el}
-          key={el.id}
-          memoFunc={memoFunc}
-          closure={closure}
-        />
-      ))}
+      <TransitionGroup>
+        {secondColumn.map(el => (
+          <CSSTransition
+            key={el.id}
+            timeout={{ appear: 500, enter: 500, exit: 0 }}
+            classNames="item"
+          >
+            <SecondColumnShorctCut
+              item={el}
+              memoFunc={memoFunc}
+              closure={closure}
+            />
+          </CSSTransition>
+        ))}
+      </TransitionGroup>
     </div>
   );
 };

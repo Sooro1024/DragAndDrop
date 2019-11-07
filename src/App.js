@@ -2,6 +2,7 @@ import React, { useReducer } from "react";
 import FirstColumn from "./FirstColumn";
 import SecondColumn from "./SecondColumn";
 import { findIndex } from "lodash";
+import nanoid from "nanoid";
 
 const arr = [
   { name: "Republic of Kosovo", id: "I5a1W_fjAaoNxvi0FDFsO" },
@@ -92,13 +93,14 @@ const newSecondColumn = (firtsColumn, dragIndex, affter, addItem) => {
 };
 
 const swap = (colomn, dragId, dropId, state) => {
-  console.log(colomn, dragId, dropId, state);
   const col = state[colomn];
   const data = [...col];
   const dragIndex = findIndex(data, ["id", dragId]);
   const dropIndex = findIndex(data, ["id", dropId]);
   const oldDrag = data[dragIndex];
   const oldDrop = data[dropIndex];
+  oldDrag.id = nanoid();
+  oldDrop.id = nanoid();
   data[dragIndex] = oldDrop;
   data[dropIndex] = oldDrag;
   return { ...state, [colomn]: data };
