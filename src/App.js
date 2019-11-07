@@ -8,7 +8,7 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const drag = ev => ev.preventDefault();
-
+  // prettier-ignore
   const memoFunc = function() {
     let param, count;
     param = null;
