@@ -16,10 +16,10 @@ const SecondColumnShorctCut = ({ item, memoFunc, closure }) => {
       ref={ref}
       onDrop={ev => {
         const affter = ev.pageY - ref.current.offsetTop > 25;
-        closure.memo(ev.currentTarget.id, affter, "toSecond");
+        memoFunc({ dropId: ev.currentTarget.id, affter, whareTo: "toSecond" });
       }}
       onDragStart={ev => {
-        closure.memo = memoFunc(ev.currentTarget.id);
+        memoFunc(ev.currentTarget.id);
       }}
     >
       {item.name}

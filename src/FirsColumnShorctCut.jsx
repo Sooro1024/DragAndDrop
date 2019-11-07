@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 
-const FirsColumnShorctCut = ({ item, memoFunc, closure }) => {
+const FirsColumnShorctCut = ({ item, memoFunc }) => {
   const ref = useRef(null);
   return (
     <div
@@ -15,11 +15,11 @@ const FirsColumnShorctCut = ({ item, memoFunc, closure }) => {
         margin: "1rem"
       }}
       onDragStart={ev => {
-        closure.memo = memoFunc(ev.currentTarget.id);
+        memoFunc(ev.currentTarget.id);
       }}
       onDrop={ev => {
         const affter = ev.pageY - ref.current.offsetTop > 25;
-        closure.memo(ev.currentTarget.id, affter, "toFirst");
+        memoFunc({ dropId: ev.currentTarget.id, affter, whareTo: "toFirst" });
       }}
     >
       {item.name}

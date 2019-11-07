@@ -12,11 +12,7 @@ const SecondColumn = ({ secondColumn, memoFunc, closure }) => {
             timeout={{ appear: 500, enter: 500, exit: 0 }}
             classNames="item"
           >
-            <SecondColumnShorctCut
-              item={el}
-              memoFunc={memoFunc}
-              closure={closure}
-            />
+            <SecondColumnShorctCut item={el} memoFunc={memoFunc} />
           </CSSTransition>
         ))}
       </TransitionGroup>
