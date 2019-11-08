@@ -1,20 +1,19 @@
 import React from "react";
 import FirsColumnShorctCut from "./FirsColumnShorctCut";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { PoseGroup } from "react-pose";
 
 const FirstColumn = ({ firtsColumn, memoFunc }) => {
   return (
     <div>
       <TransitionGroup>
-        {firtsColumn.map(el => (
-          <CSSTransition
-            key={el.id}
-            timeout={{ appear: 600, enter: 500, exit: 0 }}
-            classNames="item"
-          >
-            <FirsColumnShorctCut item={el} key={el.id} memoFunc={memoFunc} />
-          </CSSTransition>
-        ))}
+        <PoseGroup>
+          {firtsColumn.map(el => (
+            <CSSTransition key={el.id} timeout={500} classNames="item">
+              <FirsColumnShorctCut item={el} key={el.id} memoFunc={memoFunc} />
+            </CSSTransition>
+          ))}
+        </PoseGroup>
       </TransitionGroup>
     </div>
   );

@@ -20,7 +20,7 @@ code {
   user-select: none;
   color: white;
   text-align: center;
-  transition: all 0.5s ease;
+  /* transition: all 0.5s ease; */
 }
 
 .item-enter {
@@ -35,5 +35,5 @@ code {
 }
 .item-exit-active {
   opacity: 0;
-  transition: opacity 0ms ease-in;
+  transition: opacity 500ms ease-in;
 }
