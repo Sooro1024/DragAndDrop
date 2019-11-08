@@ -1,5 +1,5 @@
 import { findIndex } from "lodash";
-import nanoid from "nanoid";
+
 
 const arr = [
   { name: "Republic of Kosovo", id: "I5a1W_fjAaoNxvi0FDFsO" },
