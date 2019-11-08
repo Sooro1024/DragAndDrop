@@ -11,6 +11,7 @@ const FirsColumnShorctCut = React.forwardRef(({ item, memoFunc }, refer) => {
             id={item.id}
             ref={ref}
             draggable
+            style={{ height: "50px" }}
             onDragStart={ev => {
               memoFunc(ev.currentTarget.id);
             }}

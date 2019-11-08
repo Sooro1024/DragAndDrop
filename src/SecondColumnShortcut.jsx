@@ -11,7 +11,9 @@ const SecondColumnShorctCut = React.forwardRef(({ item, memoFunc }, refer) => {
             id={item.id}
             draggable
             ref={ref}
+            style={{ height: "50px" }}
             onDrop={ev => {
+              console.log({ curent: ref.current });
               const affter = ev.pageY - ref.current.offsetTop > 25;
               memoFunc({
                 dropId: ev.currentTarget.id,
