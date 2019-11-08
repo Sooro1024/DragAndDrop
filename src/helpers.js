@@ -86,8 +86,6 @@ const swap = (colomn, dragId, dropId, state) => {
   const dropIndex = findIndex(data, ["id", dropId]);
   const oldDrag = data[dragIndex];
   const oldDrop = data[dropIndex];
-  oldDrag.id = nanoid();
-  oldDrop.id = nanoid();
   data[dragIndex] = oldDrop;
   data[dropIndex] = oldDrag;
   return { ...state, [colomn]: data };
